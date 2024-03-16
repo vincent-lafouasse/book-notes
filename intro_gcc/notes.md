@@ -122,11 +122,9 @@ e.g. reject VLAs
 -Wimplicit
 -Wreturn-type
 
-(je reviendrai dessus)
-
 ### additional warnings
 
-tdo
+useful bc strict ANSI allows a lot, even some questionable stuff
 
 ### recommended warnings
 
