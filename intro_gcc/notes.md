@@ -30,8 +30,8 @@ features :
 No need for `-Wall` when linking, files have already been succesfully _compiled_
 i.e. `-Wall` goes in `CFLAGS`, not `LDFLAGS`
 
-> A more sophisticated makefile would usually contain additional targets for installation (`make
-install`) and testing (`make check`).
+> A more sophisticated makefile would usually contain additional targets for
+> installation (`make install`) and testing (`make check`).
 
 > A library is a collection of precompiled object files which can be linked into programs.
 > [Static libraries are] used by the linker to resolve references to functions AT COMPILE-TIME 
