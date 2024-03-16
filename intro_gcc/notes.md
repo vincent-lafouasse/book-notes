@@ -91,3 +91,20 @@ allows for change in the library without recompilation
 > ‘libNAME.a’ would be used for linking with the option ‘-lNAME ’ the compiler
 > first checks for an alternative shared library with the same name and a ‘.so’
 > extension.
+
+### C standards
+
+gcc compiles in the GNU dialect by default
+`-ansi` disables GNU extensions  that confllict with the ISO standard
+e.g. `asm` is a GNU keyword extension for native ASM in C
+it is not a reserved identifier in ANSI C
+
+exemple of GNU extension keywords : 
+`asm`
+`inline`
+`typeof` (oooh utile)
+
+example of GNU extensions:
+`M_PI` in `math.h`
+
+possibility to reactivate GNU extensions by defining the `GNU_SOURCE` macro
