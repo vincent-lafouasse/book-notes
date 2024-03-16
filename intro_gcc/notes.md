@@ -110,7 +110,7 @@ example of GNU extensions:
 possibility to reactivate GNU extensions by defining the `_GNU_SOURCE` macro
 note the leading underscore
 
-use `-pedantic` with `-ansi` to adhere STRICTLY to the standard
+use `-pedantic` with `-ansi` to adhere STRICTLY to the ISO standard
 e.g. reject VLAs
 
 ### warnings
