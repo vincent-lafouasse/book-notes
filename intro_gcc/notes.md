@@ -63,12 +63,10 @@ by `calc.c` AFTER `calc.c` in command
 paths are ordered, the first match is used
 
 default include path
-`/usr/local/include/`
-`/usr/include/`
+`/usr/local/include/:/usr/include/`
 
 default link path
-`/usr/local/lib/`
-`/usr/lib/`
+`/usr/local/lib/:/usr/lib/`
 
 `-I` `-L` for custom paths
 
@@ -76,4 +74,20 @@ or set paths with env variables
 `C_INCLUDE_PATH`
 `CPLUS_INCLUDE_PATH`
 `LIBRARY_PATH`
+this way, no need to use `-L` and `-I` flags
 
+but using the flags is more commo than using env variables
+
+### dynamic vs static linking
+
+dynamically linked library == shared library (`*.so`)
+shared library are not embedded into the final executable
+-> can be used by many binaries, hence shared
+linked differently at runtime
+allows for change in the library without recompilation
+
+> Because of these advantages gcc compiles programs to use shared libraries by
+> default on most systems, if they are available. Whenever a static library
+> ‘libNAME.a’ would be used for linking with the option ‘-lNAME ’ the compiler
+> first checks for an alternative shared library with the same name and a ‘.so’
+> extension.
