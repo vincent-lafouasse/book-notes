@@ -128,9 +128,9 @@ useful bc strict ANSI allows a lot, even some questionable stuff
 
 ### recommended warnings
 
-The following options are a good choice for finding problems in C and C++ programs:
+> The following options are a good choice for finding problems in C and C++ programs:
 ```c
 gcc -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings
 ```
-While this list is not exhaustive, regular use of these options will catch many common
-errors.
+> While this list is not exhaustive, regular use of these options will catch many common
+> errors.
