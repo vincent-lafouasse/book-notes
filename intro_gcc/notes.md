@@ -107,4 +107,32 @@ exemple of GNU extension keywords :
 example of GNU extensions:
 `M_PI` in `math.h`
 
-possibility to reactivate GNU extensions by defining the `GNU_SOURCE` macro
+possibility to reactivate GNU extensions by defining the `_GNU_SOURCE` macro
+note the leading underscore
+
+use `-pedantic` with `-ansi` to adhere STRICTLY to the standard
+e.g. reject VLAs
+
+### warnings
+
+`-Wall` integrates those specific warnings that can be activated independantly
+-Wcomment
+-Wformat
+-Wunused
+-Wimplicit
+-Wreturn-type
+
+(je reviendrai dessus)
+
+### additional warnings
+
+tdo
+
+### recommended warnings
+
+The following options are a good choice for finding problems in C and C++ programs:
+```c
+gcc -ansi -pedantic -Wall -W -Wconversion -Wshadow -Wcast-qual -Wwrite-strings
+```
+While this list is not exhaustive, regular use of these options will catch many common
+errors.
