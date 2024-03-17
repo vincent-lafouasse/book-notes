@@ -19,10 +19,12 @@ features :
 ## 2 Compiling C
 
 - `-o out` usually goes as last argument
+
 - warnings help us detect UBs
 
 > The recompilation of large source files can be very time-consuming.
     - proper build is important
+    - GNU make is cool
 
 > An object file contains machine code where any references to the memory addresses of functions (or variables) in other files are left undefined. This allows source files to be compiled without direct reference to each other. The linker fills in these missing addresses when it produces the executable.
 ??
