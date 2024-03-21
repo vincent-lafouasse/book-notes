@@ -26,3 +26,10 @@ Macros are not expanded inside strings
 
 helps ensure proper operator precedence
 
+empty quotes are treated as defined but expand to nothing
+
+> The ‘-E’ option causes gcc to run the preprocessor, display the expanded output, and then exit without compiling the resulting source code.
+
+> can be useful for examining the effect of system header files, and finding declarations of system functions
+
+use `-save-temps` to save the preprocessed output in a `.i`, as well as assembly `.s` and object `.o` files
