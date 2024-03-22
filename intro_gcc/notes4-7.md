@@ -71,3 +71,39 @@ can even malloc stuff
 buncha useful stuff, but more complex stuff is offtopic for now ig
 
 ## 6 Compiling with optimization
+
+optimization different depending on system and other stuff, so optimization
+hard, i.e. gcc very smart yes
+
+### source level optimization
+#### common subexpression elimination, ie CSE
+
+if it's already computed, gcc may be big brain enough to know it doesnt need to be evaluated again and might reuse previous results
+THAT'S common subexpression elimination
+
+done automatically when optimization are activated
+
+very powerful
+
+#### inlining
+
+increase efficiency of frequently-called functions
+
+function calls have a cost, storing arguments in registers, jump to function,
+execute, return to original point
+-> function call overhead
+
+-> fixed by inlining
+
+function call overhead is kinda small but may become significant if the function is small and used in a loop
+
+use keyword `inline` to tell gcc that a function should be inlined if possible
+
+### speed-space tradeoff
+
+faster vs bigger binary, in one direction or the other
+
+#### loop unrolling
+loops need to check a condition at each iteration
+-> unrolling might be beneficial
+> allows the compiler to use parallelism on processors that support it.
