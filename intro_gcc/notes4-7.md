@@ -99,11 +99,81 @@ function call overhead is kinda small but may become significant if the function
 
 use keyword `inline` to tell gcc that a function should be inlined if possible
 
-### speed-space tradeoff
+#### speed-space tradeoff
 
 faster vs bigger binary, in one direction or the other
 
-#### loop unrolling
+##### loop unrolling
 loops need to check a condition at each iteration
 -> unrolling might be beneficial
 > allows the compiler to use parallelism on processors that support it.
+
+#### Scheduling
+
+determining best order for instructions
+and parallelisation
+pog and no space tradeoff, but kinda complicated so need for more compilation
+ressources (memory and time)
+
+### optimization
+
+`-O[0-3]`
+
+-O0 or no -O
+-> no optimization, best for debugging
+-> is the default if no opt level specified
+
+-O1 or -O
+-> common optimization with no speed-space tradeoff
+-> should be faster and smaller than -O0
+-> no expensive optimization (like scheduling)
+
+-O2 
+-> still no speed-space stuff
+-> scheduling
+-> binary doesnt grow in size
+-> best choice for deployment bc best perf but small binary
+-> default for GNU packages release
+
+-O3
+-> expensive optimizations, eg inlining
+-> at the cost of size
+-> might not be appropriate
+-> might actually make the program slower
+
+-funroll-loops
+-> evident
+-> independant from other optimization
+-> increases binary size
+-> might not always be appropriate, case by case basis
+
+-Os
+-> reduce binary size
+-> aims at producing smallest binary
+-> eg for space constrained systems
+-> perfect for running on my toaster
+
+### optimization and debugging
+
+gcc allows for -O and -g at the same time
+not all ccs do
+
+optimization might make the debugging harder
+e.g. eliminating temp variables eliminated, variables which we might want to monitor
+
+if the program does crash, having debugging symbols is useful tho
+so -g is recommended for development AND deployment
+
+default for GNU packages is -g -O2
+
+### optimization and warnings
+
+optimization allow the compiler to notice more stuff
+the compiler has to examine variables to allow for optimization
+-> data-flow analysis
+
+> A side-effect of data-flow analysis is that the compiler can detect the use of uninitialized variables
+
+some stuff will only produce warnings with `-O2`
+
+> In practice, the optimization level ‘-O2’ is needed to give good warnings
