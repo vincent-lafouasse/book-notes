@@ -177,3 +177,45 @@ the compiler has to examine variables to allow for optimization
 some stuff will only produce warnings with `-O2`
 
 > In practice, the optimization level ‘-O2’ is needed to give good warnings
+
+## 7 Compiling a C++ program
+
+gcc is a true C++ compiler, no compiling to C
+
+in agreement with the C++ philosophy
+> There should be no language beneath C++ (except assembly language).
+
+gcc will actually compile C++ but will be unable to link
+-> undefined references to libc++
+
+### Compilation options
+
+-Wall -W as usual
+
+-fno-default-inline
+-> disable member function inlining which is done by default when opti turned
+    on even if no `inline` keyword
+
+-Weffc++
+-> kinda funny
+
+-Wold-style-cast
+-> highlight C-style casting which are not recommended in C++ as there are better options
+
+### standard lib
+
+> Note that the executables created by g++ using the C++ standard library will
+> be linked to the shared library ‘libstdc++’, which is supplied as part of the
+> default GCC installation. There are several versions of this library—if you
+> distribute executables using the C++ standard library you need to ensure that
+> the recipient has a compatible version of ‘libstdc++’, or link your program
+> statically using the command-line option ‘-static’.
+
+### templates
+
+inclusion compilation model
+-> template definitions in header files
+
+#### explicit template instantiation
+
+doesnt make much sense rn, will come back later with more C++ experience
