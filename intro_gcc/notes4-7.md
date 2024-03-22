@@ -51,3 +51,23 @@ core dump good
 > dump.1 Combined with information from the symbol table produced by ‘-g’, the
 > core dump can be used to find the line where the program stopped, and the
 > values of its variables at that point
+
+> Some systems are configured not to write core files by default, since the
+> files can be large and rapidly fill up the available disk space on a system.
+> In the GNU Bash shell the command ulimit -c controls the maximum size of core
+> files. If the size limit is zero, no core files are produced.
+
+run `ulimit -c` to check for core file max size
+on my machine it's 0, and ive also never actually seen a core dump file
+
+in lldb
+set variables with
+`expr p = $value`
+
+can even malloc stuff
+
+`expr p = (int*)malloc(sizeof(int))`
+
+buncha useful stuff, but more complex stuff is offtopic for now ig
+
+## 6 Compiling with optimization
