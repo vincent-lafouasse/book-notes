@@ -8,7 +8,8 @@ gcc -DTEST my_file.c
 or can be given a value with `-DMACRO=$value`
 when defined without a value, they are given the default value `
 
-macros beginning with dunder are a reserved namespace and are automatically defined by the compiler
+macros beginning with dunder are a reserved namespace and are automatically
+defined by the compiler
 
 see predefined macros by running `cpp -dM` on an empty file
 system specific macros do not use the dunder prefix
@@ -22,14 +23,31 @@ __LITTLE_ENDIAN__
 
 Macros are not expanded inside strings
 
-> Note that it is a good idea to surround macros by parentheses whenever they are part of an expression.
+> Note that it is a good idea to surround macros by parentheses whenever they
+> are part of an expression.
 
 helps ensure proper operator precedence
 
 empty quotes are treated as defined but expand to nothing
 
-> The ‘-E’ option causes gcc to run the preprocessor, display the expanded output, and then exit without compiling the resulting source code.
+> The ‘-E’ option causes gcc to run the preprocessor, display the expanded
+> output, and then exit without compiling the resulting source code.
 
-> can be useful for examining the effect of system header files, and finding declarations of system functions
+> can be useful for examining the effect of system header files, and finding
+> declarations of system functions
 
-use `-save-temps` to save the preprocessed output in a `.i`, as well as assembly `.s` and object `.o` files
+use `-save-temps` to save the preprocessed output in a `.i`, as well as
+assembly `.s` and object `.o` files
+
+## 5 Compiling for debugging
+
+symbol table
+
+core dump good
+
+> When a program exits abnormally (i.e. crashes) the operating system can write
+> out a core file (usually named ‘core’) which contains the in-memory state of
+> the program at the time it crashed. This file is often referred to as a core
+> dump.1 Combined with information from the symbol table produced by ‘-g’, the
+> core dump can be used to find the line where the program stopped, and the
+> values of its variables at that point
