@@ -69,3 +69,19 @@ or gcc has flags `-fsigned-char` and `funsigned-char`
 > The warning message “comparison is always true/false due to limited range of
 > data type” is one symptom of code which assumes a definition of char which is
 > different from the actual type.
+
+may cause problems if chars can never take the value -1 that signals a EOF
+problems with getc fgetc getchar
+
+```c
+char c;
+
+while ((c = getchar()) != EOF))
+{
+    /* trucs */
+}
+```
+
+not portable, if char is unsigned by default, we will never get out of the loop
+
+if char is unsigned, the return value should be stored in a (signed) int, checked as an int and then cast to char
