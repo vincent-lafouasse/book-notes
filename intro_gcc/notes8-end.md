@@ -186,3 +186,54 @@ main(void)
     return 0;
 }
 ```
+
+### Preprocessing
+
+expand maccros and included header files
+run with
+```sh
+cpp hello.c > hello.i
+```
+
+`.i` for C and `.ii` for C++ by convention
+usually not saved to disk except if `-save-temps` option used
+
+### The compiler
+
+command line `-S` instructs gcc to convert into assembly without creating object file
+
+```sh
+gcc -Wall -S hello.i # book version
+```
+
+or
+
+```sh
+gcc -Wall -S hello.c # what actually works on my machine
+```
+
+### The assembler
+
+convert asm into machine code and generate an object file
+addresses of external functions still undefined (ie still no linking)
+
+```sh
+as hello.s -o hello.o
+```
+
+at this point, the reference to `printf` is still undefined
+
+### The linker
+
+linking object files together to create the executable
+
+in practice, the binary requires external functions from system and C runtime libraries
+-> actual linking commands used internally by GCC are complicated
+
+there is never any need to type it directly, the entire process is handled by gcc and invoked by
+
+```sh
+gcc hello.o
+```
+
+tada
