@@ -95,3 +95,47 @@ will produce a bunch of shit, redirect to `more` or to a file
 >  It displays the full directory paths used to search for header files and
 >  libraries, the predefined preprocessor symbols, and the object files and
 >  libraries used for linking
+
+gdb can attach on processes
+pauses the process
+cab killthe process and create a core dump, unlike stopping the process with C-c
+
+use `ulimit -v` to limit (virtual) memory usage (in kb)
+> provides a way to test how robustly out of memory conditions are handled. An
+> artificially low limit can be used to simulate running out of memory—a
+> well-written program should not crash in this case.
+
+other cool uses for `ulimit`
+e.g. `-p` to limit number of child processes
+`ulimit -a` or `help ulimit` for more info
+
+
+## 10 Compiler-related tools
+
+### Creating a lib with the GNU archiver
+
+`ar` combines a collection of object files into a single archive file, ie a lib
+
+e.g.
+
+```sh
+ar cr libhello.a hello_fn.o bye_fn.o
+```
+
+`cr` for create and replace
+create it if it doesnt exist
+replace files if new files with same name
+
+examine toc with `t` flag
+
+### Using the profiler `gprof`
+
+for measuring the performance of a program
+> records the number of calls to each function and the amount of time spent there
+
+compile and link with `-pg` profiling option (dont forget)
+-> creates an instrumented executable
+-> contains more instructions
+
+-> efforts to decrease the runtime of a program should concentrate on the
+    functions that most time is spent on
