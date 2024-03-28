@@ -157,3 +157,32 @@ writes to `.bb` `.bbg` and `.da` files
 running `gcov` on source file will create `.gcov` file, which looks like source code but with annotations
 `######` will appear on lines never executed
 greping the hashes is useful
+
+## 11 How the compiler works
+
+multi stage process including the compiler itself (through any frontend), the assembler `as` and the linker `ld`
+> The complete set of tools used in the compilation process is referred to as a toolchain
+
+
+### Overview
+
+- preprocessing (expanding macros)
+- compilation (source code to asm)
+- assembly (asm to machine code)
+- linking (create the final binary)
+
+the individual commands are not needed, everything is done by gcc and can be seen with the `-v` option
+
+we will be working with the following file
+
+`hello.c`:
+```c
+#include <stdio.h>
+
+int
+main(void)
+{
+    printf("Hello, world!\n");
+    return 0;
+}
+```
