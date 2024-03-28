@@ -139,3 +139,21 @@ compile and link with `-pg` profiling option (dont forget)
 
 -> efforts to decrease the runtime of a program should concentrate on the
     functions that most time is spent on
+
+### Coverage testing with `gcov`
+
+analyses the number of times each line is run
+-> find dead code or untested code
+
+allows for focused optimization in coordination with `gprof`
+
+compile with `-fprofile-arcs -ftest-coverage`
+
+`-ftest-coverage` counts number of time each line is executed
+`-fprofile-arcs` counts number of time each branch is taken
+
+writes to `.bb` `.bbg` and `.da` files
+
+running `gcov` on source file will create `.gcov` file, which looks like source code but with annotations
+`######` will appear on lines never executed
+greping the hashes is useful
