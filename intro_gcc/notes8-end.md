@@ -85,3 +85,13 @@ while ((c = getchar()) != EOF))
 not portable, if char is unsigned by default, we will never get out of the loop
 
 if char is unsigned, the return value should be stored in a (signed) int, checked as an int and then cast to char
+
+## 9 Troubleshooting
+
+`gcc --help`, maybe even with the `-v` flag
+will produce a bunch of shit, redirect to `more` or to a file
+
+`-v` can also be used when compiling to get the exact sequence of commands to compile, link etc
+>  It displays the full directory paths used to search for header files and
+>  libraries, the predefined preprocessor symbols, and the object files and
+>  libraries used for linking
