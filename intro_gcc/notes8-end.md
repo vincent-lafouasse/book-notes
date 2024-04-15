@@ -317,3 +317,17 @@ int i = p;
 // vs
 int i = *p;
 ```
+
+can also appear when writing a char literal with double quotes, as it becomes a char*
+e.g. 
+```c
+char c = "a"; // this is a char*
+```
+
+or when misusing a `NULL`
+e.g.
+```c
+int i = NULL; // this is also a pointer
+```
+
+`NULL` is defined as `((void *)0)` and should only be used as a pointer
