@@ -249,7 +249,24 @@ file exec
 can reveal a lot of information
 
 e.g.
-
 - ELF : Executable and Linking Format, or sometimes COFF Common Object File Format on older stuff
 - 32-bit : word size
 - LSB : Least significant byte first word ordering, vs MSB
+
+### Symbol table
+
+```sh
+nm exec
+```
+
+shows symbol table, ie location (offset) of functions and variable by names
+more info in "GNU Binutils" manual
+
+T = defined in object file
+U = undefined, ie needs to be resolved by linking
+
+most useful to check wether a lib contains a certain functions, ie has a T for the function
+
+### Finding DLLs
+
+`man ldd`
