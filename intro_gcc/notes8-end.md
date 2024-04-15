@@ -237,3 +237,19 @@ gcc hello.o
 ```
 
 tada
+
+## 12 Examining compiled files
+
+### `file` command
+
+```sh
+file exec
+```
+
+can reveal a lot of information
+
+e.g.
+
+- ELF : Executable and Linking Format, or sometimes COFF Common Object File Format on older stuff
+- 32-bit : word size
+- LSB : Least significant byte first word ordering, vs MSB
