@@ -270,3 +270,50 @@ most useful to check wether a lib contains a certain functions, ie has a T for t
 ### Finding DLLs
 
 `man ldd`
+
+## 13 Common error messages
+
+### Preprocessor error messages
+
+`No such file or directory`
+incorrect filename/path or incorrect include path
+
+`macro or #include recursion too deep`
+`#include nested too deeply`
+usually because of circular includes
+-> use include guards
+-> ensure no circular includes
+
+`invalid preprocessor directive #foo`
+RTFM and proof ready your stuff
+
+`warning: This file includes at least one deprecated or antiquated header.`
+in C++, don't use stuff like `iostream.h`, which does work but is a bad idea as it imports into the top-level global namespace
+
+### Compiler error messages
+
+`'foo' undeclared`
+missing declaration or typo in declaration
+-> might trigger a bunch of errors, only the first one is useful
+
+`parse error before 'foo'`
+`syntax error`
+well it's a syntax error eg missing bracket, brace, semicolon or invalid keyword
+
+`parse error at end of input`
+unexpected EOF, usually because of a missing closing brace
+
+`warning implicit declaration of function 'foo'`
+failure to include a header usually
+
+`character constant too long`
+string with single quotes, can occur with stuff like `'/n'` as it contains two chars instead of a single newline char
+
+`warning: initialization makes integer from pointer without a cast`
+misuse of a pointer as an integer. the cast _is_ actually possible but most often not useful
+can appear if you forget to dereference a pointer
+```c
+int i = p;
+// vs
+int i = *p;
+```
