@@ -130,3 +130,29 @@ Delay rules:
 - delay elemts can be cascaded together
 
 ### 3 Mult. with a scalar value
+
+elementwise multiplication
+
+represented by a triangle with the scalar inside or on top
+
+### 4 Addition and subtraction
+
+sigma symbol in circle
+`-` next to branch being subtracted
+
+### 5 Some alg. examples and Difference Equations
+
+Difference Equation = mathematical equation that relates y(n) to x(n)
+digital equivalent of the differential equation
+
+e.g.
+y(n) = a.x(n-3) - b.x(n-64)
+
+nb: coefficient multiplier handles the 3 basic AP functions of
+- gain (coeff > 1.0)
+- attenation (coef in [0, 1])
+- phase inversion (coeff < 0)
+
+e.g. N-channel mixing incorporate attenuators with value 1/N to avoid overflow
+
+## 1.7 1st order feed-forward and feedback algorithms
