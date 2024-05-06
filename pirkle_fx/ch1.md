@@ -21,8 +21,20 @@ these objects not tied to any format/framework
 
 ### 1.2 Fundamentals of Audio Signal Processing
 
+Analog audio -> LPF -> ADC -> Encoder -> Digital audio
+
 Sampling theorem:
 
 > A continuous analog signal can be sampled into disrete data points and then reconstructed into the original analog signal without any loss of information-including inter-sample fluctuations- if and only if the input signal has been band-limited so that it contains no frequencies higher than half the sample rate, aaka the Nyquist frequency/rate.
 
 > Band-limiting the input signal prior to sampling is known as adhering to the Nyquist criteria
+
+violating the nyquist criteria will cause aliasing, frequencies higher than nyquist will fold back into the spectrum
+
+### 1.3 Reconstruction of the Analog Signal
+
+Digital audio -> Decoder -> DAC -> LPF -> analog
+
+output filter = reconstruction filter
+-> is responsible for recreating the inter-sample fluctuations
+-> works bc LPFing the impulses turns them into sinc() which then overlap
