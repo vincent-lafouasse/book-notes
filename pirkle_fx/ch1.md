@@ -101,3 +101,32 @@ terms:
 - x(n) always the input sequence
 - y(n) always the output sequence
 - h(n) the impulse response
+
+### 1 Bookkeeping
+
+- n = current sample
+- n-1 = previous sample
+- n+1 = next sample
+- on next sample interval, everything is shuffled and referenced to new current
+
+e.g. x(n+1) = next input sample relative to current
+
+### 2 The One-Sample delay
+
+analog circuits (like tone controls) use capacitors andinductors to alter phase and delay of signal
+
+digital algorithms use time delay instead
+
+represented with a box with z^int
+neg for backward, pos for forward
+
+z = the delay operator
+
+nb: positive delay impossible for realtime processing, only for offline processing
+
+Delay rules:
+- each time a sample goes into the delay register, the previous stored sample is ejected
+- the ejected sample can be used or deleted
+- delay elemts can be cascaded together
+
+### 3 Mult. with a scalar value
