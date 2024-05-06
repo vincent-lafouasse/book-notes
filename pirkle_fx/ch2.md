@@ -83,3 +83,29 @@ for steinberg, FUID
 - plugin factory resets
 
 lastly somme MacOS specific codes: bundle IDs
+
+## 2.3 Init.: Defining the plugin parameter interface
+
+almost all plugins requires some kind of GUI
+
+each control on the GUI connected to a plugin _parameter_
+
+the plugin must declare and describe the parameters to the host during the loading phase
+
+three fundamental reasons that these parameters need to be exposed:
+1. if automation, host needs to know how to alter the parameters
+2. all APIs allow the plugin to declare "I dont have a GUI" -> default UI from DAW
+3. parameters states must be saved when DAW session is saved
+
+e.g. VBT plugin with parameters:
+- volume
+- treble boost/cut (dB)
+- bass boost/cut (dB)
+- channel IO: L/R/stereo
+
+plugin must declare those during loading phase with one parameter per GUI control
+
+without exception, these parameters are implemented as C++ objects
+all parameters -> list of C++ objects
+
+actual location of this list depends on API but generally stored in the plubin bass class object, with DAW having mechanism to get and set them
