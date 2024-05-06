@@ -1,4 +1,4 @@
-## 1 Intro
+# 1 Intro
 
 affordagle digital audio since mid 80s (CD)
 DSP maths been around since 60s
@@ -17,9 +17,9 @@ access to dozens of C++ objects that implement every dsp alg in the book
 ch9-22 reveal conversion algo->C++
 these objects not tied to any format/framework
 
-### 1.1 Using this book
+## 1.1 Using this book
 
-### 1.2 Fundamentals of Audio Signal Processing
+## 1.2 Fundamentals of Audio Signal Processing
 
 Analog audio -> LPF -> ADC -> Encoder -> Digital audio
 
@@ -31,7 +31,7 @@ Sampling theorem:
 
 violating the nyquist criteria will cause aliasing, frequencies higher than nyquist will fold back into the spectrum
 
-### 1.3 Reconstruction of the Analog Signal
+## 1.3 Reconstruction of the Analog Signal
 
 Digital audio -> Decoder -> DAC -> LPF -> analog
 
@@ -39,7 +39,7 @@ output filter = reconstruction filter
 -> is responsible for recreating the inter-sample fluctuations
 -> works bc LPFing the impulses turns them into sinc() which then overlap
 
-### 1.4 Numerical Representation of Audio Data
+## 1.4 Numerical Representation of Audio Data
 
 unipolar vs bipolar
 integer vs fixed point vs floating point
@@ -54,3 +54,5 @@ but float prefered for DSP
 -> most audio file decoders can deal with fixed and floating point and will produce floating point data in [-1.0f, 1.0f]
 
 floats are more resilient to overflow
+
+## 1.5 
