@@ -29,3 +29,24 @@ validation phase
 -> basic or even rigorous testing
 
 host will likely crash the host if there is a runtime bug in the laoding code
+
+--> validate plugins prior to running them in the host
+AU and VST provide mechanisms to do this
+
+
+Usuallt the hosts unload all the plugins after the validation phase
+then waits for user to load plugin 
+--> loading phase
+
+when the plugin is loaded, the DLL is pulled into the binarys process address space, or less commonly from another binary's address space.
+-> when most of the plugin description occurs
+-> description = first aspect of plugin design you need to understand
+
+after loading phase, processing phase
+-> infinite loop on the host
+-> host sends audio to plugin, alg. processes it and sends altered data back to host
+
+eventually the plugin will be terminated
+--> unloading phase
+--> destroy allocated ressources and free up memory
+potential place for crashes, so be sure to test repeated loading and unloading
