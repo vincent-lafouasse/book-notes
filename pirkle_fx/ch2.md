@@ -109,3 +109,21 @@ without exception, these parameters are implemented as C++ objects
 all parameters -> list of C++ objects
 
 actual location of this list depends on API but generally stored in the plubin bass class object, with DAW having mechanism to get and set them
+
+we will discuss the mechanisms that the host uses to update the parameters in a thread-safe way in the API programming guide chapters
+
+2 types of parameters:
+continuous vs string-list
+
+continuous = float, double or int
+strinh-list = choose from options
+
+parameters attributes:
+- name ("Volume")
+- units ("dB")
+- wether parameter is numerical or list of string, and the strings themselves 
+- param min and max
+- default value for new instance
+- control taper information (log/lin)
+- other API specific info
+- auxiliary info
