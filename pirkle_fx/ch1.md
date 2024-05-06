@@ -38,3 +38,19 @@ Digital audio -> Decoder -> DAC -> LPF -> analog
 output filter = reconstruction filter
 -> is responsible for recreating the inter-sample fluctuations
 -> works bc LPFing the impulses turns them into sinc() which then overlap
+
+### 1.4 Numerical Representation of Audio Data
+
+unipolar vs bipolar
+integer vs fixed point vs floating point
+
+problem: always an even number of quantization levels
+in bipolar systems, more negs than pos
+-> causes problem with phase inversion
+-> limit the negs to -min
+
+audio data in hardware and wav often int
+but float prefered for DSP
+-> most audio file decoders can deal with fixed and floating point and will produce floating point data in [-1.0f, 1.0f]
+
+floats are more resilient to overflow
