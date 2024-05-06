@@ -127,3 +127,49 @@ parameters attributes:
 - control taper information (log/lin)
 - other API specific info
 - auxiliary info
+
+### Defining Channel I/O support
+
+some combination of input and output channels
+ most commonly:
+- mono in, mono out
+- mono in, stereo out
+- stereo in, stereo out
+
+but could be designed for a very specific channel processing, eg 7.1 DTS vs 7.1 Sony
+
+others are designed to fold down into mono or stereo, e.g. 5.1 surround to stereo fold-down
+
+each API has different ways of specifying channel IO support, during description or init or both
+
+### Sample Rate dependency
+
+almost all of the plugins are sensitive to DAW sample rate but many plugins will support just about any sample rate
+
+a few plugins may be able to process only signals with certain sample rates
+
+In all APIs, there is at least one mech. tht allows the plugin to obtain the current sample rate for use in its calculations
+
+## 2.4 Processing: Preparing for Audio Streaming
+
+each session requires preparation
+usually involves resetting the algorithm, clearing old data out of memory structures, resetting buffer indexes ,pointers etc
+
+Each API includes a function that is called prior to audio streaming
+
+called `reset()` in ASPiK, `repareToPlay()` in JUCE, etc
+
+one thing to note: trying to use transport information from the host is usually going to be problematic, unless the plugin specifically requires information about the process
+In addition, some hosts are notoriously incorrect when reporting transport states (Logic) and may report audio streaming when it's not
+
+### DSP
+
+fx plugins process audio information, transforming it in some way
+
+audio comes either from audi ofiles loaded into session, or real time audio streaming into the audio adaptor
+
+almost always as a float between -1.0 and +1.0
+
+AU AAX and RAFX use float data, while VST3 allows dloat or double
+
+we will encode all of our C++ to operate iternally with double data types
