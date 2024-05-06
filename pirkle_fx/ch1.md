@@ -55,4 +55,41 @@ but float prefered for DSP
 
 floats are more resilient to overflow
 
-## 1.5 
+## 1.5 Analytical DSP Test signals
+
+fundamental digital signals
+- DC and step
+- Nyquist
+- 1/2 Nyquist
+- 1/4 Nyquist
+- impulse
+
+the first four give us a ballpark idea of the frequency response of some basic DSP filters
+
+-> DC and Step (0 Hz)
+
+{0, ..., 0, 1, ..., 1}
+step portion and DC portion
+
+step portion tells the transient attack time
+DC portion gives response at 0 Hz
+
+-> Nyquist
+
+{..., +1, -1, +1, -1, ...}
+
+highest frequency that can be encoded
+
+-> 1/2 Nyquist
+{..., -1, 0, 1, 0, -1, ...}
+
+-> 1/4 Nyquist
+{... 0.0, 0.707, +1.0, 0.707, 0.0, −0.707, −1.0, −0.707, 0.0 ...}
+
+-> Impulse
+
+single sample with value 1.0 with a bunch of 0.0s
+Impluse Response of a DSP algorithm fully characterizes the behavior of the system
+-> we can genereate the frequency and phase response from the IR
+
+## 1.6 Signal Processing Algorithms
