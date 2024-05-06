@@ -156,3 +156,16 @@ nb: coefficient multiplier handles the 3 basic AP functions of
 e.g. N-channel mixing incorporate attenuators with value 1/N to avoid overflow
 
 ## 1.7 1st order feed-forward and feedback algorithms
+
+2 common structures: feedforward and feedback
+realtes to the signal flow in the structures
+contains only one delay register, one summer and two coefficient scalar multipliers
+
+Order of the structure = number of delay elements
+
+### Feedforward
+y(n) = a0 x(n) + a1 x(n-1)
+
+### Feedback
+y(n) = a0 x(n) - b1 y(n-1)
+
