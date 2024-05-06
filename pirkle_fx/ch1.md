@@ -93,3 +93,11 @@ Impluse Response of a DSP algorithm fully characterizes the behavior of the syst
 -> we can genereate the frequency and phase response from the IR
 
 ## 1.6 Signal Processing Algorithms
+
+for real-time processing, the alg. must accept a new input sample, do the processing and have the output sample available before the next input arrives
+synthesizing a waveform to output also qualifies but there is no rt audio input to process
+
+terms:
+- x(n) always the input sequence
+- y(n) always the output sequence
+- h(n) the impulse response
