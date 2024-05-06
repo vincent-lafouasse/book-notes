@@ -50,3 +50,36 @@ eventually the plugin will be terminated
 --> unloading phase
 --> destroy allocated ressources and free up memory
 potential place for crashes, so be sure to test repeated loading and unloading
+
+## 2.2 Plugin Description: Simple strings
+
+basic description with strings and flags
+
+each API has a slightly different mechanism for plugin to let host know info about it
+
+e.g.
+- plugin name
+- plugin type
+- plugin vendor
+- vendor contact
+
+some FourCC are needed for AU AAX VST3
+- product code: unique for each plugin sold by company
+- vendor code
+
+AAX requires AAX plugin ID
+VST3 requires 128bit GUID
+== globally unique identifier
+aka universally blabla == UUID
+for steinberg, FUID
+
+### Features and options
+
+- needs sidechain input y/n
+- creates delay and needs to inform host
+- creates reverb after playback stopped
+- has custom GUI it wants to display
+- wants to show a ProTools gain reduction meeter (AAX)
+- plugin factory resets
+
+lastly somme MacOS specific codes: bundle IDs
