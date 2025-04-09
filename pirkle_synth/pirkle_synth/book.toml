@@ -1,0 +1,6 @@
+[book]
+authors = ["vincent-lafouasse"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Pirkle synth notes"
